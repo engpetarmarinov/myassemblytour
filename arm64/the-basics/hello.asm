@@ -1,3 +1,10 @@
+.section .bss
+  // Variables go here
+
+.section .rodata
+  msg:    .asciz "Hello, world!\n"   // Define the message string with a newline character
+  msglen = . - msg                   // Calculate the length of the message
+
 .section .text
   .global _start
   _start:
@@ -12,10 +19,3 @@
       mov x0, #0            // Exit status code 0 (EXIT_SUCCESS)
 
       svc 0                 // Invoke the exit system call to terminate the program
-
-.section .bss
-    // Variables go here
-
-.section .rodata
-  msg:    .asciz "Hello, world!\n"   // Define the message string with a newline character
-  msglen = . - msg                   // Calculate the length of the message
