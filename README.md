@@ -10,7 +10,7 @@ Assembly playground inspired by myassemblytour
 make FILE=x86/the-basics/hello.asm FORMAT=elf64 run
 ```
 
-### Run in on Docker
+### Run on Docker
 ```sh
 docker build -t myassemblytour.x86 -f ./myassemblytour.x86.Dockerfile .
 docker run --rm -it -v "$(pwd):/tmp" myassemblytour.x86 sh -c "cd /tmp && sh"
@@ -25,4 +25,8 @@ then
 as -o bin/out.o arm64/the-basics/hello.asm
 ld -o bin/out bin/out.o
 ./bin/out
+```
+### Run on darwin with arm64
+```sh
+make FILE=darwin/the-basics/hello.asm run-as
 ```

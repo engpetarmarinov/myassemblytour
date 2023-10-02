@@ -1,5 +1,6 @@
-.PHONY: build link run dump dockerbuild dockerrun
+.PHONY: build link run dump build-as run-as
 
+SHELL := /bin/bash
 FILE := x86/the-basics/hello.asm
 FORMAT := elf64
 
@@ -14,3 +15,10 @@ link:
 
 dump:
 	objdump -d bin/out
+
+build-as:
+	as -o bin/out.o $(FILE)
+
+
+run-as: build-as link
+	./bin/out
